@@ -44,3 +44,21 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.shake {
+  animation: shake 0.05s ease-in-out forwards;
+}
+.highlightedClass {
+  background-color: #e39bc9;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(5px, 0);
+  }
+}
+</style>
