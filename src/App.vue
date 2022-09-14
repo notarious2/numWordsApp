@@ -7,7 +7,12 @@
     <div class="input-box">
       <label for="">Enter the number:</label>
       <input type="text" ref="inputField" />
-      <select name="languages" id="languages" v-model="language">
+      <select
+        name="languages"
+        id="languages"
+        v-model="language"
+        @change="langChanged"
+      >
         <option class="lang-placeholder" value="" selected disabled>
           Choose language
         </option>
@@ -19,6 +24,7 @@
     </div>
   </div>
   <the-output :converted="enteredSum" :language="language.text"></the-output>
+  <the-footer></the-footer>
 </template>
 
 <script>
@@ -49,14 +55,14 @@ export default {
   },
   methods: {
     setNumber() {
-      console.log(this.language.text);
-      console.log(this.language.value);
-      console.log(this.$refs.inputField.value);
       if (this.$refs.inputField.value && this.language) {
         this.enteredSum = writtenNumber(this.$refs.inputField.value, {
           lang: this.language.value,
         });
       }
+    },
+    langChanged() {
+      this.enteredSum = "";
     },
   },
 };
@@ -69,11 +75,11 @@ export default {
 
 .box-container {
   margin: 2rem auto;
-  max-width: 55rem;
+  max-width: 85%;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 2rem;
-  background-color: #9be3b6;
+  background-color: #74b2d1;
   /* display: block; */
 }
 
@@ -98,18 +104,5 @@ export default {
 .output-box input {
   float: left;
   width: 80%;
-}
-.output-box button {
-  background-image: url("assets/copy-icon.png");
-  background-size: cover;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  overflow: hidden;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-  padding: 15px;
 }
 </style>
