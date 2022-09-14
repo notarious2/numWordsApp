@@ -1,12 +1,7 @@
 <template>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
-    rel="stylesheet"
-  />
+  <navigation-bar></navigation-bar>
 
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
 
   <div class="box-container">
     <div class="input-box">
@@ -62,19 +57,12 @@ export default {
 
 <style>
 * {
-  font-family: "Libre Baskerville";
-}
-
-img {
-  display: block;
-  width: 10%;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: "Montserrat", sans-serif;
 }
 
 .box-container {
   margin: 2rem auto;
-  max-width: 50rem;
+  max-width: 55rem;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 2rem;
