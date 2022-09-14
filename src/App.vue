@@ -12,6 +12,21 @@
     <div class="input-box">
       <label for="">Enter the number:</label>
       <input type="text" ref="inputField" />
+      <select name="languages" id="languages" v-model="language">
+        <option class="lang-placeholder" value="" selected disabled>
+          Choose language
+        </option>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="ar">Arabic</option>
+        <option value="ru">Russian</option>
+        <option value="tr">Turkish</option>
+        <option value="vi">Vietnamese</option>
+        <option value="id">Indonesian</option>
+        <option value="uk">Ukranian</option>
+        <option value="eo">Esperanto</option>
+      </select>
       <button @click="setNumber">Convert</button>
     </div>
   </div>
@@ -28,14 +43,17 @@ export default {
   components: { TheOutput },
   data() {
     return {
+      language: "",
       enteredSum: "",
     };
   },
   methods: {
     setNumber() {
       console.log(this.$refs.inputField.value);
-      if (this.$refs.inputField.value) {
-        this.enteredSum = writtenNumber(this.$refs.inputField.value);
+      if (this.$refs.inputField.value && this.language) {
+        this.enteredSum = writtenNumber(this.$refs.inputField.value, {
+          lang: this.language,
+        });
       }
     },
   },
