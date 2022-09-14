@@ -1,7 +1,7 @@
 <template>
   <div class="box-container">
     <div class="output-box">
-      <label> English: </label>
+      <label> {{ language }} </label>
       <input
         type="text"
         readonly
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  props: ["converted"],
+  props: ["converted", "language"],
   data() {
     return {
       copyDisplay: false,

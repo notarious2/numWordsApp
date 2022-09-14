@@ -11,21 +11,14 @@
         <option class="lang-placeholder" value="" selected disabled>
           Choose language
         </option>
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="fr">French</option>
-        <option value="ar">Arabic</option>
-        <option value="ru">Russian</option>
-        <option value="tr">Turkish</option>
-        <option value="vi">Vietnamese</option>
-        <option value="id">Indonesian</option>
-        <option value="uk">Ukranian</option>
-        <option value="eo">Esperanto</option>
+        <option v-for="lang in languagesList" :key="lang.value" :value="lang">
+          {{ lang.text }}
+        </option>
       </select>
       <button @click="setNumber">Convert</button>
     </div>
   </div>
-  <the-output :converted="enteredSum"></the-output>
+  <the-output :converted="enteredSum" :language="language.text"></the-output>
 </template>
 
 <script>
@@ -40,14 +33,28 @@ export default {
     return {
       language: "",
       enteredSum: "",
+      languagesList: [
+        { value: "en", text: "English" },
+        { value: "es", text: "Spanish" },
+        { value: "fr", text: "French" },
+        { value: "ar", text: "Arabic" },
+        { value: "ru", text: "Russian" },
+        { value: "tr", text: "Turkish" },
+        { value: "vi", text: "Vietnamese" },
+        { value: "id", text: "Indonesian" },
+        { value: "uk", text: "Ukranian" },
+        { value: "eo", text: "Esperanto" },
+      ],
     };
   },
   methods: {
     setNumber() {
+      console.log(this.language.text);
+      console.log(this.language.value);
       console.log(this.$refs.inputField.value);
       if (this.$refs.inputField.value && this.language) {
         this.enteredSum = writtenNumber(this.$refs.inputField.value, {
-          lang: this.language,
+          lang: this.language.value,
         });
       }
     },
