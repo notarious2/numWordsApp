@@ -12,41 +12,23 @@
     <div class="input-box">
       <label for="">Enter the number:</label>
       <input type="text" ref="inputField" />
-      <button @click="setNumber">нажать</button>
+      <button @click="setNumber">Convert</button>
     </div>
   </div>
-
-  <div class="box-container">
-    <div class="output-box">
-      <label> English: </label>
-      <input
-        type="text"
-        readonly
-        v-model="enteredSum"
-        ref="clone"
-        v-on:focus="$event.target.select()"
-        :class="{ highlightedClass: isHighlighted }"
-      />
-      <div :class="{ shake: copyDisplay }">
-        <button @click="copyClipboard"></button>
-        <!-- <p class="copied-span" v-if="copyDisplay">Copied!</p> -->
-      </div>
-    </div>
-  </div>
+  <the-output :converted="enteredSum"></the-output>
 </template>
 
 <script>
 // var writtenNumber = require("written-number");
-
+import TheOutput from "./components/TheOutput.vue";
 import writtenNumber from "written-number";
 
 export default {
   name: "App",
+  components: { TheOutput },
   data() {
     return {
       enteredSum: "",
-      copyDisplay: false,
-      isHighlighted: false,
     };
   },
   methods: {
@@ -54,20 +36,6 @@ export default {
       console.log(this.$refs.inputField.value);
       if (this.$refs.inputField.value) {
         this.enteredSum = writtenNumber(this.$refs.inputField.value);
-        this.$refs.inputField.value = "";
-      }
-    },
-    copyClipboard() {
-      if (this.$refs.clone.value) {
-        this.$refs.clone.focus();
-        document.execCommand("copy");
-
-        this.copyDisplay = true;
-        this.isHighlighted = true;
-        setTimeout(() => {
-          this.copyDisplay = false;
-          this.isHighlighted = false;
-        }, 100);
       }
     },
   },
