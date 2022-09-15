@@ -1,5 +1,5 @@
 <template>
-  <div class="box-container">
+  <base-card>
     <div class="popup" v-if="converted">
       <div class="output-box">
         <label> {{ language }} </label>
@@ -18,7 +18,7 @@
         <span id="copied">copied!</span>
       </div>
     </div>
-  </div>
+  </base-card>
 </template>
 
 <script>
@@ -105,7 +105,7 @@ export default {
   font-weight: bold;
 }
 
-/* This will be activated when the snackbar's class is 'show' which will be added through JS */
+/* This will be activated when the copied span's class is 'show' which will be added through JS */
 #copied.show {
   visibility: visible;
   -webkit-animation: fadein 0.2s, fadeout 0.2s 1s;

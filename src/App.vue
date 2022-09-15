@@ -2,17 +2,11 @@
   <navigation-bar></navigation-bar>
 
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-
-  <div class="box-container">
+  <base-card>
     <div class="input-box">
       <label for="">Enter the number:</label>
       <input type="text" ref="inputField" />
-      <select
-        name="languages"
-        id="languages"
-        v-model="language"
-        @change="langChanged"
-      >
+      <select v-model="language" @change="langChanged">
         <option class="lang-placeholder" value="" selected disabled>
           Choose language
         </option>
@@ -22,7 +16,8 @@
       </select>
       <button @click="setNumber">Convert</button>
     </div>
-  </div>
+  </base-card>
+
   <the-output :converted="enteredSum" :language="language.text"></the-output>
   <the-footer></the-footer>
 </template>
