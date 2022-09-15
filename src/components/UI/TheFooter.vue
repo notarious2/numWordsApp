@@ -3,7 +3,7 @@
     <div class="footer">
       <div class="footerContent">
         <p>
-          <strong>Bekzod Mirahmedov</strong> &copy;
+          <strong>Bekzod Mirahmedov</strong> &copy; &nbsp;
           {{ new Date().getFullYear() }}
         </p>
       </div>

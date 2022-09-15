@@ -6,8 +6,14 @@
     <form @submit.prevent="setNumber">
       <div class="input-box">
         <label for="">Enter the number:</label>
-        <input type="text" ref="inputField" />
-        <select v-model="language" @change="langChanged">
+        <input
+          type="text"
+          ref="inputField"
+          v-model="typedNum"
+          @blur="clearError"
+          placeholder="Enter a number"
+        />
+        <select v-model="language" @change="langChanged" @blur="clearError">
           <option class="lang-placeholder" value="" selected disabled>
             Choose language
           </option>
@@ -18,6 +24,7 @@
         <button>Convert</button>
       </div>
     </form>
+    <span v-if="!inputIsValid" id="validity-message">{{ errorMsg }}</span>
   </base-card>
   <the-output :converted="enteredSum" :language="language.text"></the-output>
   <the-footer></the-footer>
@@ -33,6 +40,9 @@ export default {
   components: { TheOutput },
   data() {
     return {
+      typedNum: "",
+      inputIsValid: true,
+      errorMsg: "",
       language: "",
       enteredSum: "",
       languagesList: [
@@ -51,7 +61,30 @@ export default {
   },
   methods: {
     setNumber() {
+      if (this.typedNum === "" && this.language === "") {
+        this.errorMsg = "Please enter a number and choose language";
+        this.inputIsValid = false;
+        this.enteredSum = ""; //clearing to hide output box
+        return;
+      } else if (this.language === "") {
+        this.errorMsg = "Please choose a language";
+        this.inputIsValid = false;
+        this.enteredSum = "";
+        return;
+      } else if (this.typedNum === "") {
+        this.errorMsg = "Please enter a number";
+        this.inputIsValid = false;
+        this.enteredSum = "";
+        return;
+        //using regex to validate whether string can be converted to number:
+      } else if (!/^\d+$/.test(this.typedNum)) {
+        this.errorMsg = "Please enter a valid number";
+        this.inputIsValid = false;
+        this.enteredSum = "";
+        return;
+      }
       if (this.$refs.inputField.value && this.language) {
+        this.inputIsValid = true;
         this.enteredSum = writtenNumber(this.$refs.inputField.value, {
           lang: this.language.value,
         });
@@ -60,6 +93,9 @@ export default {
     langChanged() {
       this.enteredSum = "";
     },
+    clearError() {
+      this.inputIsValid = true;
+    },
   },
 };
 </script>
@@ -67,6 +103,14 @@ export default {
 <style>
 * {
   font-family: "Montserrat", sans-serif;
+}
+
+#validity-message {
+  text-align: center;
+  padding-left: 170px;
+  font-size: 12px;
+  color: rgb(107, 33, 33);
+  font-weight: bold;
 }
 
 .input-box {
@@ -86,5 +130,20 @@ export default {
 .input-box input {
   float: left;
   width: 80%;
+  padding-left: 10px;
+}
+.input-box button {
+  width: 150px;
+  border: solid 1px rgb(30, 29, 91);
+  border-radius: 5px;
+  background-color: rgb(83, 101, 214);
+  font-weight: bold;
+  color: white;
+}
+.input-box button:active {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.input-box button:hover {
+  background-color: rgb(30, 29, 91);
 }
 </style>
