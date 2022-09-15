@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     copyClipboard() {
+      showCopyConfirmation();
       if (this.$refs.clone.value) {
         this.$refs.clone.focus();
         document.execCommand("copy");
@@ -51,9 +52,8 @@ export default {
         setTimeout(() => {
           this.copyDisplay = false;
           this.isHighlighted = false;
-        }, 100);
+        }, 200);
       }
-      showCopyConfirmation();
     },
   },
 };
@@ -74,7 +74,7 @@ export default {
   padding: 15px;
 }
 .shake {
-  animation: shake 0.05s ease-in-out forwards;
+  animation: shake 0.2s ease-in-out forwards;
 }
 .highlightedClass {
   background-color: #e39bc9;
@@ -85,23 +85,24 @@ export default {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(5px, 0);
+    transform: translate(10px, 0);
   }
 }
 
 #copied {
   visibility: hidden;
-  color: #fff;
-  background-color: #333;
+  color: black;
+  background-color: rgb(150, 199, 232);
   min-width: 250px;
   margin-left: -125px;
-  border-radius: 2px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 10px;
   text-align: center;
   left: 50%;
-  bottom: 30px;
+  bottom: 100px;
   z-index: 1;
   position: fixed;
+  font-weight: bold;
 }
 
 /* This will be activated when the snackbar's class is 'show' which will be added through JS */
@@ -118,8 +119,8 @@ export default {
     opacity: 0;
   }
   to {
-    bottom: 30px;
-    opacity: 1;
+    bottom: 100px;
+    opacity: 0.5;
   }
 }
 
@@ -129,15 +130,15 @@ export default {
     opacity: 0;
   }
   to {
-    bottom: 30px;
-    opacity: 1;
+    bottom: 100px;
+    opacity: 0.5;
   }
 }
 
 @-webkit-keyframes fadeout {
   from {
-    bottom: 30px;
-    opacity: 1;
+    bottom: 100px;
+    opacity: 0.5;
   }
   to {
     bottom: 0;
@@ -147,8 +148,8 @@ export default {
 
 @keyframes fadeout {
   from {
-    bottom: 30px;
-    opacity: 1;
+    bottom: 100px;
+    opacity: 0.5;
   }
   to {
     bottom: 0;

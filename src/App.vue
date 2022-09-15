@@ -77,10 +77,10 @@ export default {
   margin: 2rem auto;
   max-width: 85%;
   border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 2rem;
   background-color: #74b2d1;
   /* display: block; */
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 .input-box,
