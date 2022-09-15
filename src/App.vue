@@ -3,21 +3,22 @@
 
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <base-card>
-    <div class="input-box">
-      <label for="">Enter the number:</label>
-      <input type="text" ref="inputField" />
-      <select v-model="language" @change="langChanged">
-        <option class="lang-placeholder" value="" selected disabled>
-          Choose language
-        </option>
-        <option v-for="lang in languagesList" :key="lang.value" :value="lang">
-          {{ lang.text }}
-        </option>
-      </select>
-      <button @click="setNumber">Convert</button>
-    </div>
+    <form @submit.prevent="setNumber">
+      <div class="input-box">
+        <label for="">Enter the number:</label>
+        <input type="text" ref="inputField" />
+        <select v-model="language" @change="langChanged">
+          <option class="lang-placeholder" value="" selected disabled>
+            Choose language
+          </option>
+          <option v-for="lang in languagesList" :key="lang.value" :value="lang">
+            {{ lang.text }}
+          </option>
+        </select>
+        <button>Convert</button>
+      </div>
+    </form>
   </base-card>
-
   <the-output :converted="enteredSum" :language="language.text"></the-output>
   <the-footer></the-footer>
 </template>
@@ -80,7 +81,6 @@ export default {
   padding-right: 10px;
   font-weight: bold;
   text-align: left;
-  display: block;
 }
 
 .input-box input {
