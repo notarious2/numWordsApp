@@ -34,6 +34,7 @@
 // var writtenNumber = require("written-number");
 import TheOutput from "./components/TheOutput.vue";
 import writtenNumber from "written-number";
+// import Vue from "vue";
 
 export default {
   name: "App",
@@ -76,25 +77,34 @@ export default {
         this.inputIsValid = false;
         this.enteredSum = "";
         return;
-        //using regex to validate whether string can be converted to number:
-      } else if (!/^\d+$/.test(this.typedNum)) {
-        this.errorMsg = "Please enter a valid number";
-        this.inputIsValid = false;
-        this.enteredSum = "";
-        return;
       }
       if (this.$refs.inputField.value && this.language) {
         this.inputIsValid = true;
-        this.enteredSum = writtenNumber(this.$refs.inputField.value, {
+        this.enteredSum = this.$refs.inputField.value.replaceAll(",", ""); //extracting refs and getting rid of commas
+        this.enteredSum = writtenNumber(this.enteredSum, {
+          //using writtenNumber library
           lang: this.language.value,
         });
       }
+      console.log(typeof Number(this.enteredSum));
+      console.log(new Intl.NumberFormat().format(parseFloat(this.enteredSum)));
     },
     langChanged() {
       this.enteredSum = "";
     },
     clearError() {
       this.inputIsValid = true;
+    },
+  },
+  watch: {
+    typedNum: function (newVal) {
+      const result = newVal
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        .replace(/^0+/g, "0");
+      console.log(result);
+      console.log(typeof Number(result.replaceAll(",", "")));
+      this.$nextTick(() => (this.typedNum = result));
     },
   },
 };
@@ -131,6 +141,7 @@ export default {
   float: left;
   width: 80%;
   padding-left: 10px;
+  font-size: 20px;
 }
 .input-box button {
   width: 150px;

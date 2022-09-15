@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar">
     <!-- LOGO -->
-    <img alt="Vue logo" src="../../assets/rotation.png" />
     <div class="logo-text">Convert Numbers to Words</div>
+    <img alt="Vue logo" src="../../assets/rotation.png" />
     <!-- NAVIGATION MENU -->
     <ul class="nav-links">
       <!-- NAVIGATION MENUS -->
@@ -18,10 +18,16 @@
 <style scoped>
 .logo-text {
   font-family: "Parisienne", sans-serif;
-  font-size: 36px;
+  font-size: 44px;
   font-weight: bold;
   color: black;
-  margin-left: 10px;
+  margin-left: 100px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 img {
