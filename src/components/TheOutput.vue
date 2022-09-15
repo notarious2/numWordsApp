@@ -60,6 +60,17 @@ export default {
 </script>
 
 <style scoped>
+.output-box {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+}
+
+.output-box input {
+  float: left;
+  width: 80%;
+}
+
 .output-box button {
   background-image: url("../assets/copy-icon2.png");
   background-size: cover;
@@ -73,6 +84,16 @@ export default {
   outline: none;
   padding: 15px;
 }
+
+.output-box label {
+  width: 180px;
+  clear: left;
+  padding-right: 10px;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
 .shake {
   animation: shake 0.2s ease-in-out forwards;
 }

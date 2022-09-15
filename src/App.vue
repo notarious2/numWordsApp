@@ -68,25 +68,13 @@ export default {
   font-family: "Montserrat", sans-serif;
 }
 
-.box-container {
-  margin: 2rem auto;
-  max-width: 85%;
-  border-radius: 12px;
-  padding: 2rem;
-  background-color: #74b2d1;
-  /* display: block; */
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
-}
-
-.input-box,
-.output-box {
+.input-box {
   display: flex;
   padding: 10px;
   margin: 10px;
 }
 
-.input-box label,
-.output-box label {
+.input-box label {
   width: 180px;
   clear: left;
   padding-right: 10px;
@@ -95,8 +83,7 @@ export default {
   display: block;
 }
 
-.input-box input,
-.output-box input {
+.input-box input {
   float: left;
   width: 80%;
 }
