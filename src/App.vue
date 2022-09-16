@@ -86,8 +86,6 @@ export default {
           lang: this.language.value,
         });
       }
-      console.log(typeof Number(this.enteredSum));
-      console.log(new Intl.NumberFormat().format(parseFloat(this.enteredSum)));
     },
     langChanged() {
       this.enteredSum = "";
@@ -96,14 +94,13 @@ export default {
       this.inputIsValid = true;
     },
   },
+  // changing input format when typing
   watch: {
     typedNum: function (newVal) {
       const result = newVal
         .replace(/\D/g, "")
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         .replace(/^0+/g, "0");
-      console.log(result);
-      console.log(typeof Number(result.replaceAll(",", "")));
       this.$nextTick(() => (this.typedNum = result));
     },
   },
@@ -152,7 +149,8 @@ export default {
   color: white;
 }
 .input-box button:active {
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
+  transform: translateX(1px);
 }
 .input-box button:hover {
   background-color: rgb(30, 29, 91);

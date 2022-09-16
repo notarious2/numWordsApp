@@ -21,7 +21,9 @@
   font-size: 44px;
   font-weight: bold;
   color: black;
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  /* to make text not selectable: */
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -32,7 +34,7 @@
 
 img {
   display: block;
-  width: 10%;
+  width: 7%;
 }
 
 /* NAVBAR STYLING STARTS */

@@ -1,24 +1,27 @@
 <template>
-  <base-card>
-    <div class="popup" v-if="converted">
-      <div class="output-box">
-        <label> {{ language }} </label>
-        <input
-          type="text"
-          readonly
-          :value="converted"
-          ref="clone"
-          v-on:focus="$event.target.select()"
-          :class="{ highlightedClass: isHighlighted }"
-        />
-        <div :class="{ shake: copyDisplay }">
-          <button @click="copyClipboard"></button>
-          <!-- <p class="copied-span" v-if="copyDisplay">Copied!</p> -->
+  <slot>
+    <base-card>
+      <div class="popup" v-if="converted">
+        <div class="output-box">
+          <label> {{ language }}: </label>
+          <textarea
+            id="output"
+            readonly
+            :value="converted"
+            ref="clone"
+            @focus="$event.target.select()"
+            :class="{ highlightedClass: isHighlighted }"
+          >
+          </textarea>
+          <div :class="{ shake: copyDisplay }">
+            <button @click="copyClipboard"></button>
+            <!-- <p class="copied-span" v-if="copyDisplay">Copied!</p> -->
+          </div>
+          <span id="copied">copied!</span>
         </div>
-        <span id="copied">copied!</span>
       </div>
-    </div>
-  </base-card>
+    </base-card>
+  </slot>
 </template>
 
 <script>
@@ -36,6 +39,7 @@ export default {
   props: ["converted", "language"],
   data() {
     return {
+      helpToExpand: "",
       copyDisplay: false,
       isHighlighted: false,
     };
@@ -55,6 +59,17 @@ export default {
         }, 200);
       }
     },
+    resize() {
+      try {
+        this.$refs.clone.style.height = "auto";
+        this.$refs.clone.style.height = this.$refs.clone.scrollHeight + "px";
+      } catch (error) {
+        console.log("resize");
+      }
+    },
+  },
+  updated() {
+    this.resize();
   },
 };
 </script>
@@ -69,7 +84,33 @@ export default {
 .output-box input {
   float: left;
   width: 80%;
+  font-size: 18px;
+  font-weight: bold;
 }
+
+#output {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1px 6px;
+  width: 600px;
+  overflow: hidden;
+  height: 40px;
+  resize: none;
+}
+
+/* #output {
+  width: 300px;
+  min-height: 72px;
+  padding: 2px;
+  resize: none;
+  overflow: hidden;
+  background-color: transparent;
+  border: 2px solid #000;
+  border-radius: 4px;
+  font-family: "Inconsolata", monospace;
+  font-size: 1rem;
+  color: #000;
+} */
 
 .output-box button {
   background-image: url("../assets/copy-icon2.png");
@@ -88,7 +129,7 @@ export default {
 .output-box label {
   width: 180px;
   clear: left;
-  padding-right: 10px;
+  padding-top: 10px;
   font-weight: bold;
   text-align: left;
   display: block;
