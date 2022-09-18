@@ -8,6 +8,7 @@ import BaseCard from "./components/UI/BaseCard.vue";
 import TheInput from "./components/TheInput.vue";
 import TheAbout from "./pages/TheAbout.vue";
 import TheContact from "./pages/TheContact.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
     name: "Contact",
     component: TheContact,
   },
+  { path: "/:notFound(.*)", component: NotFound },
 ];
 
 const router = createRouter({
