@@ -1,13 +1,11 @@
 <template>
   <navigation-bar></navigation-bar>
-  <the-input></the-input>
+  <router-view></router-view>
   <the-footer></the-footer>
 </template>
 
-<script>
-import TheInput from "./components/TheInput.vue";
-
-export default {
-  components: { TheInput },
-};
-</script>
+<style>
+* {
+  font-family: "Montserrat", sans-serif;
+}
+</style>

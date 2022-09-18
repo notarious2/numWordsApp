@@ -101,11 +101,7 @@ export default {
 };
 </script>
 
-<style>
-* {
-  font-family: "Montserrat", sans-serif;
-}
-
+<style scoped>
 #validity-message {
   text-align: center;
   padding-left: 170px;

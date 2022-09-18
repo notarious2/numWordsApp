@@ -7,9 +7,9 @@
     <ul class="nav-links">
       <!-- NAVIGATION MENUS -->
       <div class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/contact">Contact</router-link></li>
+        <li><router-link to="/about">About</router-link></li>
       </div>
     </ul>
   </nav>
