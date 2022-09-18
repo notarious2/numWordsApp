@@ -44,9 +44,9 @@ img {
   justify-content: space-between;
   padding: 10px;
   background-color: rgb(160, 235, 235);
-  color: #fff;
   border-radius: 12px;
 }
+
 .nav-links a {
   color: black;
   text-decoration: none;
