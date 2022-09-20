@@ -26,79 +26,78 @@
   <the-output :converted="enteredSum" :language="language.text"></the-output>
 </template>
 
-<script>
+<script setup>
 import TheOutput from "./TheOutput.vue";
 import writtenNumber from "written-number";
-// import Vue from "vue";
+import { ref, watch, nextTick } from "vue";
 
-export default {
-  components: { TheOutput },
-  data() {
-    return {
-      typedNum: "",
-      inputIsValid: true,
-      errorMsg: "",
-      language: "",
-      enteredSum: "",
-      languagesList: [
-        { value: "en", text: "English" },
-        { value: "es", text: "Spanish" },
-        { value: "fr", text: "French" },
-        { value: "ar", text: "Arabic" },
-        { value: "ru", text: "Russian" },
-        { value: "tr", text: "Turkish" },
-        { value: "vi", text: "Vietnamese" },
-        { value: "id", text: "Indonesian" },
-        { value: "uk", text: "Ukranian" },
-        { value: "eo", text: "Esperanto" },
-      ],
-    };
-  },
-  methods: {
-    setNumber() {
-      if (this.typedNum === "" && this.language === "") {
-        this.errorMsg = "Please enter a number and choose language";
-        this.inputIsValid = false;
-        this.enteredSum = ""; //clearing to hide output box
-        return;
-      } else if (this.language === "") {
-        this.errorMsg = "Please choose a language";
-        this.inputIsValid = false;
-        this.enteredSum = "";
-        return;
-      } else if (this.typedNum === "") {
-        this.errorMsg = "Please enter a number";
-        this.inputIsValid = false;
-        this.enteredSum = "";
-        return;
-      }
-      if (this.$refs.inputField.value && this.language) {
-        this.inputIsValid = true;
-        this.enteredSum = this.$refs.inputField.value.replaceAll(",", ""); //extracting refs and getting rid of commas
-        this.enteredSum = writtenNumber(this.enteredSum, {
-          //using writtenNumber library
-          lang: this.language.value,
-        });
-      }
-    },
-    langChanged() {
-      this.enteredSum = "";
-    },
-    clearError() {
-      this.inputIsValid = true;
-    },
-  },
-  // changing input format when typing
-  watch: {
-    typedNum: function (newVal) {
-      const result = newVal
-        .replace(/\D/g, "")
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        .replace(/^0+/g, "0");
-      this.$nextTick(() => (this.typedNum = result));
-    },
-  },
-};
+// Handling Input Errors
+const inputIsValid = ref(true);
+const errorMsg = ref("");
+// Ref in the DOM
+const inputField = ref();
+// gets the number from ref inputField after it is validated and button clicked
+const enteredSum = ref("");
+
+const typedNum = ref("");
+const language = ref("");
+
+const languagesList = [
+  { value: "en", text: "English" },
+  { value: "es", text: "Spanish" },
+  { value: "fr", text: "French" },
+  { value: "ar", text: "Arabic" },
+  { value: "ru", text: "Russian" },
+  { value: "tr", text: "Turkish" },
+  { value: "vi", text: "Vietnamese" },
+  { value: "id", text: "Indonesian" },
+  { value: "uk", text: "Ukranian" },
+  { value: "eo", text: "Esperanto" },
+];
+
+function langChanged() {
+  enteredSum.value = "";
+}
+
+function clearError() {
+  inputIsValid.value = true;
+}
+
+function setNumber() {
+  if (typedNum.value === "" && language.value === "") {
+    errorMsg.value = "Please enter a number and choose language";
+    inputIsValid.value = false;
+    enteredSum.value = ""; //clearing to hide output box
+    return;
+  } else if (language.value === "") {
+    errorMsg.value = "Please choose a language";
+    inputIsValid.value = false;
+    enteredSum.value = "";
+    return;
+  } else if (typedNum.value === "") {
+    errorMsg.value = "Please enter a number";
+    inputIsValid.value = false;
+    enteredSum.value = "";
+    return;
+  }
+  if (inputField.value.value && language.value) {
+    inputIsValid.value = true;
+    enteredSum.value = inputField.value.value.replaceAll(",", ""); //extracting refs and getting rid of commas
+    enteredSum.value = writtenNumber(enteredSum.value, {
+      //using writtenNumber library
+      lang: language.value.value, //see here
+    });
+  }
+}
+
+// adds commas and cuts trailling zeros when input field is typed
+watch(typedNum, function (newValue) {
+  const result = newValue
+    .replace(/^0+(0$|[1-9])/gm, "$1") // remove all leading zeros except if 0using a capture group:
+    .replace(/\D/g, "") // replace all characters other than numbers
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ","); //format numbers - adds commas
+  nextTick(() => (typedNum.value = result));
+});
 </script>
 
 <style scoped>

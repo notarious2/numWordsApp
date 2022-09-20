@@ -24,7 +24,18 @@
   </slot>
 </template>
 
-<script>
+<script setup>
+import { defineProps, ref, onUpdated } from "vue";
+
+// const props = defineProps(["converted", "language"]);
+// eslint-disable-next-line
+const props = defineProps({
+  converted: String,
+  language: String,
+});
+// console.log("props here:");
+// console.log(props);
+
 function showCopyConfirmation() {
   var sb = document.getElementById("copied");
 
@@ -35,43 +46,38 @@ function showCopyConfirmation() {
     sb.className = sb.className.replace("show", "");
   }, 1000);
 }
-export default {
-  props: ["converted", "language"],
-  data() {
-    return {
-      helpToExpand: "",
-      copyDisplay: false,
-      isHighlighted: false,
-    };
-  },
-  methods: {
-    copyClipboard() {
-      showCopyConfirmation();
-      if (this.$refs.clone.value) {
-        this.$refs.clone.focus();
-        document.execCommand("copy");
 
-        this.copyDisplay = true;
-        this.isHighlighted = true;
-        setTimeout(() => {
-          this.copyDisplay = false;
-          this.isHighlighted = false;
-        }, 200);
-      }
-    },
-    resize() {
-      try {
-        this.$refs.clone.style.height = "auto";
-        this.$refs.clone.style.height = this.$refs.clone.scrollHeight + "px";
-      } catch (error) {
-        console.log("resize");
-      }
-    },
-  },
-  updated() {
-    this.resize();
-  },
-};
+const copyDisplay = ref(false);
+const isHighlighted = ref(false);
+const clone = ref();
+
+function copyClipboard() {
+  showCopyConfirmation();
+  if (clone.value.value) {
+    clone.value.focus();
+    document.execCommand("copy");
+
+    copyDisplay.value = true;
+    isHighlighted.value = true;
+    setTimeout(() => {
+      copyDisplay.value = false;
+      isHighlighted.value = false;
+    }, 200);
+  }
+}
+
+function resize() {
+  try {
+    clone.value.style.height = "auto";
+    clone.value.style.height = clone.value.scrollHeight + "px";
+  } catch {
+    //intentionally blank
+  }
+}
+// Resizing textarea once it is updated
+onUpdated(function () {
+  resize();
+});
 </script>
 
 <style scoped>
