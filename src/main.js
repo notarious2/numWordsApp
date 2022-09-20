@@ -32,6 +32,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  linkExactActiveClass: "active", // to highlight active tabs
 });
 
 const app = createApp(App);

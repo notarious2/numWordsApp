@@ -1,15 +1,16 @@
 <template>
   <nav class="navbar">
     <!-- LOGO -->
-    <div class="logo-text">Convert Numbers to Words</div>
-    <img alt="Vue logo" src="../../assets/rotation.png" />
+    <router-link to="/">
+      <div class="logo-text">Convert Numbers to Words</div>
+    </router-link>
     <!-- NAVIGATION MENU -->
     <ul class="nav-links">
       <!-- NAVIGATION MENUS -->
       <div class="menu">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/contact">Contact</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
+        <router-link class="link" to="/"><li>Home</li></router-link>
+        <router-link class="link" to="/contact"><li>Contact</li></router-link>
+        <router-link class="link" to="/about"><li>About</li></router-link>
       </div>
     </ul>
   </nav>
@@ -32,6 +33,10 @@
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   display: block;
   width: 7%;
@@ -43,13 +48,19 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: rgb(160, 235, 235);
+  background-color: rgb(222 255 255);
   border-radius: 12px;
+}
+
+.nav-links {
+  flex-direction: column;
+  display: flex;
 }
 
 .nav-links a {
   color: black;
   text-decoration: none;
+  display: flex;
 }
 /* LOGO */
 .logo {
@@ -57,17 +68,29 @@ img {
 }
 /* NAVBAR MENU */
 .menu {
-  display: flex;
   gap: 1em;
   font-size: 18px;
+  display: flex;
 }
 .menu li:hover {
   background-color: rgb(135, 203, 203);
   border-radius: 5px;
   transition: 0.3s ease;
 }
+
 .menu li {
   padding: 5px 14px;
   list-style: none;
+}
+.link.active {
+  background-color: rgb(135, 203, 203);
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 769px) {
+  .menu {
+    display: block;
+    margin-right: 20px;
+  }
 }
 </style>

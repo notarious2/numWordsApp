@@ -27,14 +27,8 @@
 <script setup>
 import { defineProps, ref, onUpdated } from "vue";
 
-// const props = defineProps(["converted", "language"]);
 // eslint-disable-next-line
-const props = defineProps({
-  converted: String,
-  language: String,
-});
-// console.log("props here:");
-// console.log(props);
+const props = defineProps(["converted", "language"]);
 
 function showCopyConfirmation() {
   var sb = document.getElementById("copied");
