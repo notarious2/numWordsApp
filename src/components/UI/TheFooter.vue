@@ -16,7 +16,7 @@
   width: 100%;
   position: fixed;
   bottom: 0px;
-  background-color: rgb(160, 235, 235);
+  background-color: rgb(222 255 255);
 }
 .footer {
   width: 400px;

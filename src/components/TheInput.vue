@@ -1,29 +1,35 @@
 <template>
-  <base-card>
-    <form @submit.prevent="setNumber">
-      <div class="input-box">
-        <label for="">Enter the number:</label>
-        <input
-          type="text"
-          ref="inputField"
-          v-model="typedNum"
-          @blur="clearError"
-          placeholder="Enter a number"
-        />
-        <select v-model="language" @change="langChanged" @blur="clearError">
-          <option class="lang-placeholder" value="" selected disabled>
-            Choose language
-          </option>
-          <option v-for="lang in languagesList" :key="lang.value" :value="lang">
-            {{ lang.text }}
-          </option>
-        </select>
-        <button>Convert</button>
-      </div>
-    </form>
-    <span v-if="!inputIsValid" id="validity-message">{{ errorMsg }}</span>
-  </base-card>
-  <the-output :converted="enteredSum" :language="language.text"></the-output>
+  <div>
+    <base-card>
+      <form @submit.prevent="setNumber">
+        <div class="input-box">
+          <label for="">Enter the number:</label>
+          <input
+            type="text"
+            ref="inputField"
+            v-model="typedNum"
+            @blur="clearError"
+            placeholder="Enter a number"
+          />
+          <select v-model="language" @change="langChanged" @blur="clearError">
+            <option class="lang-placeholder" value="" selected disabled>
+              Choose language
+            </option>
+            <option
+              v-for="lang in languagesList"
+              :key="lang.value"
+              :value="lang"
+            >
+              {{ lang.text }}
+            </option>
+          </select>
+          <button>Convert</button>
+        </div>
+      </form>
+      <span v-if="!inputIsValid" id="validity-message">{{ errorMsg }}</span>
+    </base-card>
+    <the-output :converted="enteredSum" :language="language.text"></the-output>
+  </div>
 </template>
 
 <script setup>
