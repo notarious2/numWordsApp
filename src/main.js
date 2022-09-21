@@ -6,7 +6,7 @@ import TheNavigationBar from "./components/UI/TheNavigationBar.vue";
 import TheFooter from "./components/UI/TheFooter.vue";
 import BaseCard from "./components/UI/BaseCard.vue";
 import TheInput from "./components/TheInput.vue";
-import TheAbout from "./pages/TheAbout.vue";
+import TheAbout from "./pages/about/TheAbout.vue";
 import TheContact from "./pages/TheContact.vue";
 import NotFound from "./pages/NotFound.vue";
 

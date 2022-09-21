@@ -1,24 +1,4 @@
-<template>
-  <div>
-    <h3>
-      I have utilized the following Vue concepts when implementing this project:
-    </h3>
-
-    <component
-      :is="ListItem"
-      :skill="set.skill"
-      :skill-desc="set.description"
-      v-for="set in skillsets"
-      :key="set.skill"
-    />
-  </div>
-</template>
-
-<script setup>
-import ListItem from "../components/UI/ListItem.vue";
-
-// eslint-disable-next-line
-const skillsets = [
+export default [
   {
     skill: "Composition API",
     description:
@@ -40,10 +20,3 @@ const skillsets = [
     description: "this page for example was created this way",
   },
 ];
-</script>
-
-<style scoped>
-h3 {
-  text-align: center;
-}
-</style>
