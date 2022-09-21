@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>About this project</h1>
+    <h1>About project</h1>
     <p class="app-description">{{ description }}</p>
     <p class="list-heading">
       I have utilized the following Vue.js concepts when building this
@@ -26,8 +26,14 @@ import description from "./desc.js";
 
 <style scoped>
 h1 {
-  padding: 2px;
-  text-align: center;
+  padding: 10px;
+  text-align: right;
+  background-color: rgb(222 255 255);
+  margin-left: 5%;
+  padding-right: 20px;
+  border-radius: 10px;
+  border: solid;
+  border-color: rgb(135, 203, 203);
 }
 
 .app-description {

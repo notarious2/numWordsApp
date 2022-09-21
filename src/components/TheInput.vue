@@ -36,6 +36,7 @@
 import TheOutput from "./TheOutput.vue";
 import writtenNumber from "written-number";
 import { ref, watch, nextTick } from "vue";
+import numberToWordsUz from "number-to-words-uz";
 
 // Handling Input Errors
 const inputIsValid = ref(true);
@@ -58,6 +59,8 @@ const languagesList = [
   { value: "vi", text: "Vietnamese" },
   { value: "id", text: "Indonesian" },
   { value: "uk", text: "Ukranian" },
+  { value: "uz", text: "Uzbek - Cyrillic" },
+  { value: "uz", text: "Uzbek - Latin" },
   { value: "eo", text: "Esperanto" },
 ];
 
@@ -85,14 +88,28 @@ function setNumber() {
     inputIsValid.value = false;
     enteredSum.value = "";
     return;
-  }
+  } // if both input provided and language selected
   if (inputField.value.value && language.value) {
     inputIsValid.value = true;
-    enteredSum.value = inputField.value.value.replaceAll(",", ""); //extracting refs and getting rid of commas
-    enteredSum.value = writtenNumber(enteredSum.value, {
+    //extracting refs and getting rid of commas
+    enteredSum.value = inputField.value.value.replaceAll(",", "");
+    // for Uzbek language using number-to-words-uz
+    if (language.value.value === "uz") {
+      if (language.value.text.includes("Latin")) {
+        enteredSum.value = numberToWordsUz.convert(enteredSum.value, {
+          lang: "uzLatin",
+        });
+      } else {
+        enteredSum.value = numberToWordsUz.convert(enteredSum.value, {
+          lang: "uzCyril",
+        });
+      }
+    } else {
       //using writtenNumber library
-      lang: language.value.value, //see here
-    });
+      enteredSum.value = writtenNumber(enteredSum.value, {
+        lang: language.value.value, //see here
+      });
+    }
   }
 }
 
