@@ -1,5 +1,10 @@
 export default [
   {
+    skill: "Dynamic component rendering",
+    description: `Each list item in this page is a separate component. I have used 
+     v-for to render same component multiple times but with different parameters`,
+  },
+  {
     skill: "Composition API",
     description:
       "I first used Options API and then switched to Composition API",
@@ -14,9 +19,5 @@ export default [
   {
     skill: "Component interaction with props",
     description: "add Description here",
-  },
-  {
-    skill: "List Rendering v-for with a Component",
-    description: "this page for example was created this way",
   },
 ];

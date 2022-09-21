@@ -3,7 +3,11 @@
     <div class="container">
       <li @click="toggleDesc" :class="{ selectedList: isSelected }">
         {{ skill }}
-        <img src="../../assets/double-down.png" alt="double drop" />
+        <img
+          v-if="!showDesc"
+          src="../../assets/double-down.png"
+          alt="double drop"
+        />
       </li>
     </div>
     <span class="desc" v-if="showDesc">{{ skillDesc }}</span>
@@ -41,17 +45,22 @@ li {
   margin-bottom: 5px;
   align-items: center;
   user-select: none;
+  border-radius: 10px;
 }
 
 .desc {
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: 5px;
   padding: 5px;
   font-size: 16px;
+  display: block;
+  font-family: "Kalam", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  border-radius: 5px;
 }
 
 .selectedList {
-  background-color: aquamarine;
+  background-color: rgb(192, 255, 234);
   font-weight: bold;
 }
 </style>

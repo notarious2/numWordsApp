@@ -22,8 +22,8 @@
   font-size: 44px;
   font-weight: bold;
   color: black;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
   /* to make text not selectable: */
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
