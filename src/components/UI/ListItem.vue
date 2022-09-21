@@ -1,8 +1,11 @@
 <template>
   <div>
-    <li @click="toggleDesc" :class="{ selectedList: isSelected }">
-      {{ skill }}
-    </li>
+    <div class="container">
+      <li @click="toggleDesc" :class="{ selectedList: isSelected }">
+        {{ skill }}
+        <img src="../../assets/double-down.png" alt="double drop" />
+      </li>
+    </div>
     <span class="desc" v-if="showDesc">{{ skillDesc }}</span>
   </div>
 </template>
@@ -22,8 +25,15 @@ function toggleDesc() {
 </script>
 
 <style scoped>
+img {
+  height: 20px;
+  vertical-align: middle;
+  float: right;
+  padding-right: 10px;
+}
+
 li {
-  display: flex;
+  display: block;
   list-style: none;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
   padding: 10px;
@@ -32,6 +42,7 @@ li {
   align-items: center;
   user-select: none;
 }
+
 .desc {
   margin-top: 5px;
   margin-left: 20px;
@@ -41,5 +52,6 @@ li {
 
 .selectedList {
   background-color: aquamarine;
+  font-weight: bold;
 }
 </style>
