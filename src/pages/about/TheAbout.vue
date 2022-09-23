@@ -48,7 +48,7 @@ function toggle() {
     currentUrl.value = urls.value[0];
     currentImage.value = 0;
   }
-
+  // accessing method of each child
   for (const i in Array.from(Array(7).keys())) {
     childs.value[i].toggleAll(currentState.value);
   }

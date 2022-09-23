@@ -1,13 +1,14 @@
 <template>
-  <navigation-bar></navigation-bar>
+  <div>
+    <navigation-bar></navigation-bar>
 
-  <router-view v-slot="slotProps">
-    <transition name="route" mode="out-in">
-      <component :is="slotProps.Component"></component>
-    </transition>
-  </router-view>
-
-  <the-footer></the-footer>
+    <router-view v-slot="slotProps">
+      <transition name="route" mode="out-in">
+        <component :is="slotProps.Component"></component>
+      </transition>
+    </router-view>
+    <the-footer></the-footer>
+  </div>
 </template>
 
 <style>

@@ -1,35 +1,24 @@
 <template>
   <div class="footerWrap">
-    <div class="footer">
-      <div class="footerContent">
-        <p>
-          <strong>Bekzod Mirahmedov</strong> &copy; &nbsp;
-          {{ new Date().getFullYear() }}
-        </p>
-      </div>
-    </div>
+    <p class="footer-text">
+      <strong>Bekzod Mirahmedov</strong> &copy; &nbsp;
+      {{ new Date().getFullYear() }}
+    </p>
   </div>
 </template>
 
 <style scoped>
 .footerWrap {
-  width: 100%;
   position: fixed;
-  bottom: 0px;
-  background-color: rgb(222 255 255);
-}
-.footer {
-  width: 400px;
-  margin: auto;
-}
-.footerContent {
-  float: left;
-  width: 100%;
-  padding: 10px 0;
-}
-.footer p {
-  float: left;
+  bottom: 0;
   width: 100%;
   text-align: center;
+  margin: 0 auto;
+  background-color: rgb(222 255 255);
+  border-radius: 10px;
+}
+
+.footer-text {
+  width: 100%;
 }
 </style>
