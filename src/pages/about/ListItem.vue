@@ -3,18 +3,14 @@
     <div class="container">
       <li @click="toggleDesc" :class="{ selectedList: isSelected }">
         {{ skill }}
-        <img
-          v-if="!showDesc"
-          src="../../assets/double-down.png"
-          alt="double drop"
-        />
+        <img :src="currentUrl" alt="double arrow" />
       </li>
     </div>
     <span class="desc" v-if="showDesc">{{ skillDesc }}</span>
   </div>
 </template>
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, defineProps, defineExpose } from "vue";
 
 // eslint-disable-next-line
 const props = defineProps(["skill", "skillDesc"]);
@@ -23,9 +19,38 @@ const showDesc = ref(false);
 const isSelected = ref(false);
 
 function toggleDesc() {
+  if (currentImage.value === 0) {
+    currentImage.value = 1;
+    currentUrl.value = urls.value[currentImage.value];
+  } else if (currentImage.value === 1) {
+    currentImage.value = 0;
+    currentUrl.value = urls.value[currentImage.value];
+  }
   showDesc.value = !showDesc.value;
   isSelected.value = !isSelected.value;
 }
+
+function toggleAll(val) {
+  showDesc.value = !!val;
+  isSelected.value = !!val;
+
+  if (showDesc.value) {
+    currentImage.value = 1;
+    currentUrl.value = urls.value[currentImage.value];
+  } else {
+    currentImage.value = 0;
+    currentUrl.value = urls.value[currentImage.value];
+  }
+}
+defineExpose({ toggleAll });
+
+// working with image that changes source on click
+const urls = ref([
+  require("@/assets/double-down.png"),
+  require("@/assets/double-up.png"),
+]);
+const currentImage = ref(0);
+const currentUrl = ref(urls.value[currentImage.value]);
 </script>
 
 <style scoped>
@@ -33,7 +58,7 @@ img {
   height: 20px;
   vertical-align: middle;
   float: right;
-  padding-right: 10px;
+  padding-right: 12px;
 }
 
 li {

@@ -2,16 +2,19 @@
   <div>
     <h1>About project</h1>
     <p class="app-description">{{ description }}</p>
+
     <p class="list-heading">
       I have utilized the following Vue.js concepts when building this
       application :
+      <img @click="toggle(currentState)" :src="currentUrl" alt="double arrow" />
     </p>
-    <component
+    <list-item
       :is="ListItem"
       :skill="set.skill"
       :skill-desc="set.description"
       v-for="set in skillsets"
       :key="set.skill"
+      ref="childs"
     />
   </div>
 </template>
@@ -21,16 +24,45 @@ import ListItem from "./ListItem.vue";
 import skillsets from "./skillset.js";
 import description from "./desc.js";
 
+import { ref } from "vue";
 // eslint-disable-next-line
+const childs = ref(null);
+
+// current state of Toggle all is disabled
+const currentState = ref(true);
+
+// working with image that changes source on click
+const urls = ref([
+  require("@/assets/double-down.png"),
+  require("@/assets/double-up.png"),
+]);
+const currentImage = ref(0);
+const currentUrl = ref(urls.value[currentImage.value]);
+
+function toggle() {
+  console.log("here", currentState.value);
+  if (currentImage.value === 0) {
+    currentUrl.value = urls.value[1];
+    currentImage.value = 1;
+  } else if (currentImage.value === 1) {
+    currentUrl.value = urls.value[0];
+    currentImage.value = 0;
+  }
+
+  for (const i in Array.from(Array(7).keys())) {
+    childs.value[i].toggleAll(currentState.value);
+  }
+  currentState.value = currentState.value ? false : true;
+}
 </script>
 
 <style scoped>
 h1 {
   padding: 10px;
-  text-align: right;
+  text-align: left;
   background-color: rgb(222 255 255);
-  margin-left: 5%;
-  padding-right: 20px;
+  margin-right: 5%;
+  padding-left: 20px;
   border-radius: 10px;
   border: solid;
   border-color: rgb(135, 203, 203);
@@ -45,7 +77,19 @@ h1 {
 }
 
 .list-heading {
+  display: block;
+  position: relative;
   padding: 10px;
   background-color: rgb(192, 255, 234);
+  border-radius: 10px;
+}
+
+img {
+  height: 25px;
+  vertical-align: middle;
+  float: right;
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }
 </style>
