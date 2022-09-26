@@ -84,34 +84,33 @@ ul li a {
   background: linear-gradient(0deg, #ddd, #fff);
   transition: 0.5s;
   font-size: 27px;
-  color: black;
+  /* color: black; */
 }
 
 ul li a:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  text-decoration: none;
 }
 
-ul li:nth-child(1) a:hover {
+ul li:nth-child(1) a {
   color: #3b5998;
 }
 
-ul li:nth-child(2) a:hover {
+ul li:nth-child(2) a {
   color: #6700ed;
 }
 
-ul li:nth-child(3) a:hover {
+ul li:nth-child(3) a {
   color: #dd4b39;
 }
 
-ul li:nth-child(4) a:hover {
+ul li:nth-child(4) a {
   color: #007bb6;
 }
 
-ul li:nth-child(5) a:hover {
+ul li:nth-child(5) a {
   color: #40e487;
 }
-ul li:nth-child(6) a:hover {
+ul li:nth-child(6) a {
   color: blue;
 }
 </style>
