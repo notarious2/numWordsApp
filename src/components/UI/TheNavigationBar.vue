@@ -9,8 +9,8 @@
       <!-- NAVIGATION MENUS -->
       <div class="menu">
         <router-link class="link" to="/"><li>Home</li></router-link>
-        <router-link class="link" to="/contact"><li>Contact</li></router-link>
         <router-link class="link" to="/about"><li>About</li></router-link>
+        <router-link class="link" to="/contact"><li>Contact</li></router-link>
       </div>
     </ul>
   </nav>

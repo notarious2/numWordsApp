@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>About project</h1>
+    <h1>About this Vue.js project</h1>
     <p class="app-description">{{ description }}</p>
 
     <p class="list-heading">
@@ -49,7 +49,7 @@ function toggle() {
     currentImage.value = 0;
   }
   // accessing method of each child
-  for (const i in Array.from(Array(7).keys())) {
+  for (const i in Array.from(Array(childs.value.length).keys())) {
     childs.value[i].toggleAll(currentState.value);
   }
   currentState.value = currentState.value ? false : true;
@@ -58,16 +58,14 @@ function toggle() {
 
 <style scoped>
 h1 {
-  padding: 10px;
-  text-align: left;
-  background-color: rgb(222 255 255);
-  margin-right: 5%;
-  padding-left: 20px;
-  border-radius: 10px;
-  border: solid;
-  border-color: rgb(135, 203, 203);
+  position: relative;
+  text-align: center;
+  color: #353535;
+  padding-top: 10px;
+  bottom: 10px;
+  font-family: "Parisienne", sans-serif;
+  font-size: 40px;
 }
-
 .app-description {
   background-color: rgb(192, 255, 234);
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;

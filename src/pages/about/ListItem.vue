@@ -61,7 +61,7 @@ img {
   padding-right: 12px;
 }
 
-li {
+.container li {
   display: block;
   list-style: none;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
@@ -76,6 +76,7 @@ li {
 .desc {
   margin-top: 5px;
   margin-left: 5px;
+  margin-bottom: 10px;
   padding: 5px;
   font-size: 16px;
   display: block;

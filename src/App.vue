@@ -1,19 +1,29 @@
 <template>
-  <div>
+  <div class="content">
     <navigation-bar></navigation-bar>
 
     <router-view v-slot="slotProps">
       <transition name="route" mode="out-in">
-        <component :is="slotProps.Component"></component>
+        <component class="child" :is="slotProps.Component"></component>
       </transition>
     </router-view>
-    <the-footer></the-footer>
+    <the-footer class="footer"></the-footer>
   </div>
 </template>
 
 <style>
 * {
   font-family: "Montserrat", sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
 }
 
 .route-enter-from {

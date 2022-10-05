@@ -14,15 +14,25 @@ export default [
     description: `The app was initially built using Options API, but then switched to Composition API 
       with a <script setup>`,
   },
-  { skill: "Input", description: "add Description here" },
-  { skill: "Page transition", description: "add Description here" },
-  { skill: "Button Animation", description: "add Description here" },
   {
-    skill: "Vue router for page navigation and styling active pages",
-    description: "add Description here",
+    skill: "Input",
+    description: `Input component uses v-for, @blur, ref. 
+      Watch and regex were used to constantly add thousands place as a user types input.`,
   },
   {
-    skill: "Component interaction with props",
-    description: "add Description here",
+    skill: "Output",
+    description: `Output component uses class binding, event listeners, props and custom functions (triggered onUpdate) 
+    to automatically resize output window based on resulting length of the text. Copy to clipboard 
+    functionality was implemented using animations, class binding and plain JS functions.`,
+  },
+  {
+    skill: "Vue router and transition",
+    description:
+      "Vue router was used for page navigation, active page indication and transition effects.",
+  },
+  {
+    skill: "Font Awesome icons",
+    description:
+      "Fontawesome icons were used to build responsive social media contact buttons in the Contact Page ",
   },
 ];

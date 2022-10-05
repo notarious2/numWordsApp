@@ -1,40 +1,37 @@
 <template>
-  <div class="contact">
-    <h1>Contact Me</h1>
-    <ul>
-      <li>
-        <a href="https://www.linkedin.com/in/bekzod-mirahmedov-cfa-79b5b055">
-          <font-awesome-icon icon="fab fa-linkedin-in" />
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/notarious2">
-          <font-awesome-icon icon="fab fa-github"
-        /></a>
-      </li>
-      <li>
-        <a href="mailto:notarious2@gmail.com"
-          ><font-awesome-icon icon="fas fa-envelope"
-        /></a>
-      </li>
-      <li>
-        <a href="https://telegram.me/notarious2"
-          ><font-awesome-icon icon="far fa-paper-plane"
-        /></a>
-      </li>
+  <ul>
+    <li>
+      <a href="https://www.linkedin.com/in/bekzod-mirahmedov-cfa-79b5b055">
+        <font-awesome-icon icon="fab fa-linkedin-in" />
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/notarious2">
+        <font-awesome-icon icon="fab fa-github"
+      /></a>
+    </li>
+    <li>
+      <a href="mailto:notarious2@gmail.com"
+        ><font-awesome-icon icon="fas fa-envelope"
+      /></a>
+    </li>
+    <li>
+      <a href="https://telegram.me/notarious2"
+        ><font-awesome-icon icon="far fa-paper-plane"
+      /></a>
+    </li>
 
-      <li>
-        <a href="https://wa.me/998998426389"
-          ><font-awesome-icon icon="fab fa-whatsapp"
-        /></a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/bekzod.mirahmedov"
-          ><font-awesome-icon icon="fab fa-facebook-f"
-        /></a>
-      </li>
-    </ul>
-  </div>
+    <li>
+      <a href="https://wa.me/998998426389"
+        ><font-awesome-icon icon="fab fa-whatsapp"
+      /></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/bekzod.mirahmedov"
+        ><font-awesome-icon icon="fab fa-facebook-f"
+      /></a>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
@@ -43,25 +40,15 @@ body {
   padding: 0;
   background: #dedede;
 }
-h1 {
-  position: relative;
-  text-align: center;
-  color: #353535;
-  padding-top: 100px;
-  bottom: 30px;
-  font-family: "Parisienne", sans-serif;
-  font-size: 40px;
-}
+
 ul {
-  position: relative;
-  top: 50%;
+  position: absolute;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
   display: flex;
-  margin-left: 140px;
-  padding-top: 20px;
 }
 
 ul li {
@@ -70,25 +57,25 @@ ul li {
 
 ul li a {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   display: block;
   text-align: center;
   margin: 0 10px;
   border-radius: 50%;
-  padding: 10px;
-  padding-top: 20px;
+  padding: 6px;
   box-sizing: border-box;
   text-decoration: none;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   background: linear-gradient(0deg, #ddd, #fff);
   transition: 0.5s;
-  font-size: 27px;
-  /* color: black; */
+  font-size: 26px;
 }
 
 ul li a:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  font-size: 30px;
 }
 
 ul li:nth-child(1) a {

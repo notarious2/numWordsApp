@@ -127,7 +127,7 @@ watch(typedNum, function (newValue) {
 #validity-message {
   text-align: center;
   padding-left: 170px;
-  font-size: 12px;
+  font-size: 16px;
   color: rgb(107, 33, 33);
   font-weight: bold;
 }

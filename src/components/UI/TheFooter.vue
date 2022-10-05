@@ -9,13 +9,11 @@
 
 <style scoped>
 .footerWrap {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   text-align: center;
-  margin: 0 auto;
   background-color: rgb(222 255 255);
   border-radius: 10px;
+  padding: 5px 0px 5px 0px;
 }
 
 .footer-text {
