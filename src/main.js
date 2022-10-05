@@ -21,16 +21,20 @@ library.add(fab, fas, far);
 const routes = [
   {
     path: "/",
+    redirect: { name: "Home" },
+  },
+  {
+    path: "/numWordsApp/",
     name: "Home",
     component: TheInput,
   },
   {
-    path: "/about",
+    path: "/numWordsApp/about",
     name: "About",
     component: TheAbout,
   },
   {
-    path: "/contact",
+    path: "/numWordsApp/contact",
     name: "Contact",
     component: TheContact,
   },
