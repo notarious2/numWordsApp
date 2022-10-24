@@ -8,7 +8,7 @@
     <ul class="nav-links">
       <!-- NAVIGATION MENUS -->
       <div class="menu">
-        <router-link class="link" to="/"><li>Home</li></router-link>
+        <router-link class="link" :to="{ name: 'Home' }"><li>Home</li></router-link>
         <router-link class="link" :to="{ name: 'About' }"
           ><li>About</li></router-link
         >
@@ -67,10 +67,7 @@ img {
   text-decoration: none;
   display: flex;
 }
-/* LOGO */
-.logo {
-  font-size: 32px;
-}
+
 /* NAVBAR MENU */
 .menu {
   gap: 1em;
