@@ -23,11 +23,10 @@
 <style scoped>
 .logo-text {
   font-family: "Parisienne", sans-serif;
-  font-size: 44px;
+  font-size: 36px;
   font-weight: bold;
   color: black;
   margin-left: 30px;
-  margin-right: 30px;
   /* to make text not selectable: */
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -59,6 +58,8 @@ img {
 .nav-links {
   flex-direction: column;
   display: flex;
+  align-items: right;
+  justify-content: right;
 }
 
 .nav-links a {
@@ -94,7 +95,9 @@ img {
 @media only screen and (max-width: 769px) {
   .menu {
     display: block;
-    margin-right: 20px;
-  }
+    margin-right: 5px;
+    }
+
 }
 </style>
+

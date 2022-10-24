@@ -11,7 +11,7 @@
             @blur="clearError"
             placeholder="Enter a number"
           />
-          <select v-model="language" @change="langChanged" @blur="clearError">
+          <select v-model="language" @change="langChanged" @blur="clearError" class="language"> 
             <option class="lang-placeholder" value="" selected disabled>
               Choose language
             </option>
@@ -125,8 +125,10 @@ watch(typedNum, function (newValue) {
 
 <style scoped>
 #validity-message {
-  text-align: center;
-  padding-left: 170px;
+  /* padding-left: 170px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   color: rgb(107, 33, 33);
   font-weight: bold;
@@ -141,7 +143,6 @@ watch(typedNum, function (newValue) {
 .input-box label {
   width: 180px;
   clear: left;
-  padding-right: 10px;
   font-weight: bold;
   text-align: left;
 }
@@ -149,8 +150,8 @@ watch(typedNum, function (newValue) {
 .input-box input {
   float: left;
   width: 80%;
-  padding-left: 10px;
   font-size: 20px;
+  min-width: 170px;
 }
 .input-box button {
   width: 150px;
@@ -167,4 +168,27 @@ watch(typedNum, function (newValue) {
 .input-box button:hover {
   background-color: rgb(30, 29, 91);
 }
+
+@media (max-width: 768px) {
+  .input-box {
+    flex-direction: column;
+    gap: 2px;
+   }
+   .input-box input { 
+    margin-top: 5px;
+   }
+   .input-box button { 
+    height: 30px;
+    
+
+   }
+   .language {
+    width: 82%;
+    height: 30px;
+
+   }
+
+  }
+
+
 </style>
