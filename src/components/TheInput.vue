@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div>
+      <h2 class="app-desc">Convert numbers into words in 11 languages</h2>
+    </div>
     <base-card>
       <form @submit.prevent="setNumber">
         <div class="input-box">
@@ -124,20 +127,15 @@ watch(typedNum, function (newValue) {
 </script>
 
 <style scoped>
-#validity-message {
-  /* padding-left: 170px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: rgb(107, 33, 33);
-  font-weight: bold;
+.app-desc {
+  text-align: center;
 }
 
 .input-box {
   display: flex;
   padding: 10px;
   margin: 10px;
+  gap: 2px;
 }
 
 .input-box label {
@@ -168,6 +166,16 @@ watch(typedNum, function (newValue) {
   background-color: rgb(30, 29, 91);
 }
 
+#validity-message {
+  /* padding-left: 170px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: rgb(107, 33, 33);
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .input-box {
     flex-direction: column;
@@ -194,9 +202,6 @@ watch(typedNum, function (newValue) {
    .input-box button { 
     height: 30px;
    }
-
-
+   
   }
-
-
 </style>

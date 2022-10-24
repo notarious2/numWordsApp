@@ -2,7 +2,7 @@
   <nav class="navbar">
     <!-- LOGO -->
     <router-link to="/">
-      <div class="logo-text">Convert Numbers to Words</div>
+      <div class="logo-text">Convert Numbers into Words</div>
     </router-link>
     <!-- NAVIGATION MENU -->
     <ul class="nav-links">
