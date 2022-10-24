@@ -151,7 +151,6 @@ watch(typedNum, function (newValue) {
   float: left;
   width: 80%;
   font-size: 20px;
-  min-width: 170px;
 }
 .input-box button {
   width: 150px;
@@ -174,19 +173,28 @@ watch(typedNum, function (newValue) {
     flex-direction: column;
     gap: 2px;
    }
+   .input-box label {
+    display: none;
+   }
+
    .input-box input { 
     margin-top: 5px;
+    width: 100%;
+   }
+   .language {
+    width: 100%;
+    height: 30px;
+   }
+   /* make input and select sizes the same */
+   input, select {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
    }
    .input-box button { 
     height: 30px;
-    
-
    }
-   .language {
-    width: 82%;
-    height: 30px;
 
-   }
 
   }
 
