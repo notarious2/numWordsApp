@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h2 class="app-desc">Convert numbers into words in 11 languages</h2>
+      <h1 class="app-desc">Convert numbers into words in 11 languages</h1>
     </div>
     <base-card>
       <form @submit.prevent="setNumber">
@@ -202,6 +202,6 @@ watch(typedNum, function (newValue) {
    .input-box button { 
     height: 30px;
    }
-   
+
   }
 </style>
