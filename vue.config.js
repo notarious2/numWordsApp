@@ -8,4 +8,5 @@
 
 module.exports = {
   publicPath: "/",
+  productionSourceMap: false, // to hide source code
 };
