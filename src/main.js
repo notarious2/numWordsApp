@@ -21,13 +21,13 @@ import VueGtag from "vue-gtag";
 library.add(fab, fas, far);
 
 const routes = [
-  {
-    path: "/",
-    redirect: { name: "Home" },
-  },
+  // {
+  //   path: "/",
+  //   redirect: { name: "Home" },
+  // },
   {
     // path: "/numWordsApp/",
-    path: "/home",
+    path: "/",
     name: "Home",
     component: TheInput,
   },
