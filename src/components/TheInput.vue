@@ -31,7 +31,7 @@
               {{ lang.text }}
             </option>
           </select>
-          <button>Convert</button>
+          <button @click="buttonAnalytics">Convert</button>
         </div>
       </form>
       <span v-if="!inputIsValid" id="validity-message">{{ errorMsg }}</span>
@@ -45,6 +45,7 @@ import TheOutput from "./TheOutput.vue";
 import writtenNumber from "written-number";
 import { ref, watch, nextTick } from "vue";
 import numberToWordsUz from "number-to-words-uz";
+import { event } from "vue-gtag";
 
 // Handling Input Errors
 const inputIsValid = ref(true);
@@ -71,6 +72,14 @@ const languagesList = [
   { value: "uz", text: "Uzbek - Latin" },
   { value: "eo", text: "Esperanto" },
 ];
+
+function buttonAnalytics() {
+  event("convert-button-clicked", {
+    event_category: "analytics",
+    event_label: "Convert button pressed",
+    value: 1,
+  });
+}
 
 function langChanged() {
   enteredSum.value = "";
