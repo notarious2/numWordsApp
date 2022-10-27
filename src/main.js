@@ -24,17 +24,20 @@ const routes = [
     redirect: { name: "Home" },
   },
   {
-    path: "/numWordsApp/",
+    // path: "/numWordsApp/",
+    path: "/home",
     name: "Home",
     component: TheInput,
   },
   {
-    path: "/numWordsApp/about",
+    // path: "/numWordsApp/about",
+    path: "/about",
     name: "About",
     component: TheAbout,
   },
   {
-    path: "/numWordsApp/contact",
+    // path: "/numWordsApp/contact",
+    path: "/contact",
     name: "Contact",
     component: TheContact,
   },
