@@ -1,6 +1,19 @@
-# num-words
+#
 
-<h3 align="center">A passionate frontend developer from Uzbekistan</h3>
+<h1 align="center"> <strong>Convert Numbers to Words </strong> <h1>
+<h3 align="center" style="font-style: italic;">This dynamic SPA was build using <strong>Vue.js</strong></h3>
+</br>
+
+## The project utilizes the following Vue features:
+
+- Event handling and data binding
+- Vue router
+- Parent-child communication with props
+- Parent-child (child function) communication with refs
+
+## _You can convert numbers to words in **11** languages_
+
+![Alt homepage](src/assets/readme/home_screen.png?raw=true "Homepage Screenshot")
 
 ## Project setup
 
@@ -19,13 +32,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).

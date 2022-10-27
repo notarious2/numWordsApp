@@ -113,7 +113,7 @@ onUpdated(function () {
 } */
 
 .output-box button {
-  background-image: url("../assets/copy-icon2.png");
+  background-image: url("../assets/copy-icon.png");
   background-size: cover;
   position: relative;
   width: 50px;
