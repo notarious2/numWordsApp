@@ -8,7 +8,9 @@
     <ul class="nav-links">
       <!-- NAVIGATION MENUS -->
       <div class="menu">
-        <router-link class="link" :to="{ name: 'Home' }"><li>Home</li></router-link>
+        <router-link class="link" :to="{ name: 'Home' }"
+          ><li>Home</li></router-link
+        >
         <router-link class="link" :to="{ name: 'About' }"
           ><li>About</li></router-link
         >
@@ -92,9 +94,9 @@ img {
 @media only screen and (max-width: 769px) {
   .menu {
     display: block;
-    margin-right: 5px;
-    }
-
+  }
+  .link.active {
+    margin: 1px 0px;
+  }
 }
 </style>
-

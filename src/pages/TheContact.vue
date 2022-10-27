@@ -1,37 +1,39 @@
 <template>
-  <ul>
-    <li>
-      <a href="https://www.linkedin.com/in/bekzod-mirahmedov-cfa-79b5b055">
-        <font-awesome-icon icon="fab fa-linkedin-in" />
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/notarious2">
-        <font-awesome-icon icon="fab fa-github"
-      /></a>
-    </li>
-    <li>
-      <a href="mailto:notarious2@gmail.com"
-        ><font-awesome-icon icon="fas fa-envelope"
-      /></a>
-    </li>
-    <li>
-      <a href="https://telegram.me/notarious2"
-        ><font-awesome-icon icon="far fa-paper-plane"
-      /></a>
-    </li>
+  <div class="box">
+    <ul>
+      <li>
+        <a href="https://www.linkedin.com/in/bekzod-mirahmedov-cfa-79b5b055">
+          <font-awesome-icon icon="fab fa-linkedin-in" />
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/notarious2">
+          <font-awesome-icon icon="fab fa-github"
+        /></a>
+      </li>
+      <li>
+        <a href="mailto:notarious2@gmail.com"
+          ><font-awesome-icon icon="fas fa-envelope"
+        /></a>
+      </li>
+      <li>
+        <a href="https://telegram.me/notarious2"
+          ><font-awesome-icon icon="far fa-paper-plane"
+        /></a>
+      </li>
 
-    <li>
-      <a href="https://wa.me/998998426389"
-        ><font-awesome-icon icon="fab fa-whatsapp"
-      /></a>
-    </li>
-    <li>
-      <a href="https://www.facebook.com/bekzod.mirahmedov"
-        ><font-awesome-icon icon="fab fa-facebook-f"
-      /></a>
-    </li>
-  </ul>
+      <li>
+        <a href="https://wa.me/998998426389"
+          ><font-awesome-icon icon="fab fa-whatsapp"
+        /></a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/bekzod.mirahmedov"
+          ><font-awesome-icon icon="fab fa-facebook-f"
+        /></a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
@@ -99,5 +101,23 @@ ul li:nth-child(5) a {
 }
 ul li:nth-child(6) a {
   color: blue;
+}
+@media (max-width: 768px) {
+  ul {
+    position: relative;
+    flex-direction: column;
+    margin-top: 180px;
+    margin-left: 30%;
+    top: none;
+    left: none;
+  }
+
+  ul li a {
+    margin-top: 5px;
+  }
+  .box {
+    display: flex;
+    margin-right: 40%;
+  }
 }
 </style>

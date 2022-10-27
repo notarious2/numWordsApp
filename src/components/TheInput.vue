@@ -14,7 +14,12 @@
             @blur="clearError"
             placeholder="Enter a number"
           />
-          <select v-model="language" @change="langChanged" @blur="clearError" class="language"> 
+          <select
+            v-model="language"
+            @change="langChanged"
+            @blur="clearError"
+            class="language"
+          >
             <option class="lang-placeholder" value="" selected disabled>
               Choose language
             </option>
@@ -129,6 +134,8 @@ watch(typedNum, function (newValue) {
 <style scoped>
 .app-desc {
   text-align: center;
+  margin: 20px 10px 5px 10px;
+  font-size: 18px;
 }
 
 .input-box {
@@ -180,28 +187,28 @@ watch(typedNum, function (newValue) {
   .input-box {
     flex-direction: column;
     gap: 2px;
-   }
-   .input-box label {
+  }
+  .input-box label {
     display: none;
-   }
+  }
 
-   .input-box input { 
+  .input-box input {
     margin-top: 5px;
     width: 100%;
-   }
-   .language {
+  }
+  .language {
     width: 100%;
     height: 30px;
-   }
-   /* make input and select sizes the same */
-   input, select {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-   }
-   .input-box button { 
-    height: 30px;
-   }
-
   }
+  /* make input and select sizes the same */
+  input,
+  select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .input-box button {
+    height: 30px;
+  }
+}
 </style>
