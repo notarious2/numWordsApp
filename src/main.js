@@ -5,10 +5,6 @@ import App from "./App.vue";
 import TheNavigationBar from "./components/UI/TheNavigationBar.vue";
 import TheFooter from "./components/UI/TheFooter.vue";
 import BaseCard from "./components/UI/BaseCard.vue";
-import TheInput from "./components/TheInput.vue";
-import TheAbout from "./pages/about/TheAbout.vue";
-import TheContact from "./pages/TheContact.vue";
-import NotFound from "./pages/NotFound.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -18,7 +14,10 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 
 import VueGtag from "vue-gtag";
 
-library.add(fab, fas, far);
+import TheInput from "./components/TheInput.vue";
+import TheAbout from "./pages/about/TheAbout.vue";
+import TheContact from "./pages/TheContact.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const routes = [
   // {
@@ -45,6 +44,7 @@ const routes = [
   },
   { path: "/:notFound(.*)", component: NotFound },
 ];
+library.add(fab, fas, far);
 
 const router = createRouter({
   history: createWebHistory(),

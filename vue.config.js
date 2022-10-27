@@ -9,4 +9,13 @@
 module.exports = {
   publicPath: "/",
   productionSourceMap: false, // to hide source code
+  pluginOptions: {
+    sitemap: {
+      urls: [
+        "https://www.numwords.us",
+        "https://www.numwords.us/about",
+        "https://www.numwords.us/contact",
+      ],
+    },
+  },
 };
