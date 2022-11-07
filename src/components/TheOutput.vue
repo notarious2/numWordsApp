@@ -98,20 +98,6 @@ onUpdated(function () {
   resize: none;
 }
 
-/* #output {
-  width: 300px;
-  min-height: 72px;
-  padding: 2px;
-  resize: none;
-  overflow: hidden;
-  background-color: transparent;
-  border: 2px solid #000;
-  border-radius: 4px;
-  font-family: "Inconsolata", monospace;
-  font-size: 1rem;
-  color: #000;
-} */
-
 .output-box button {
   background-image: url("../assets/copy-icon.png");
   background-size: cover;

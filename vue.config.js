@@ -17,5 +17,8 @@ module.exports = {
         "https://www.numwords.us/contact",
       ],
     },
+    webpackBundleAnalyzer: {
+      openAnalyzer: false,
+    },
   },
 };
