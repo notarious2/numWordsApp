@@ -95,8 +95,10 @@ img {
   .menu {
     display: block;
   }
-  .link.active {
-    margin: 1px 0px;
+  .link {
+    margin: 3px 1px;
   }
 }
 </style>
+#app > div > nav > ul > div > a.router-link-active.active.link > li #app > div >
+nav > ul > div > a:nth-child(3) > li
