@@ -41,11 +41,13 @@
 </template>
 
 <script setup>
-import TheOutput from "./TheOutput.vue";
 import writtenNumber from "written-number";
 import { ref, watch, nextTick } from "vue";
 import numberToWordsUz from "number-to-words-uz";
 import { event } from "vue-gtag";
+import { defineAsyncComponent } from "vue";
+
+const TheOutput = defineAsyncComponent(() => import("./TheOutput.vue"));
 
 // Handling Input Errors
 const inputIsValid = ref(true);
