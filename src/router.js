@@ -4,6 +4,7 @@ const TheInput = () => import("./components/TheInput.vue");
 const TheAbout = () => import("./pages/about/TheAbout.vue");
 const TheContact = () => import("./pages/TheContact.vue");
 const NotFound = () => import("./pages/NotFound.vue");
+const ApiCalls = () => import("./pages/ApiCalls.vue");
 
 const routes = [
   // {
@@ -28,6 +29,7 @@ const routes = [
     name: "Contact",
     component: TheContact,
   },
+  { path: "/api/:lang/:number", component: ApiCalls },
   { path: "/:notFound(.*)", component: NotFound },
 ];
 
