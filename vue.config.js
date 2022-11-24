@@ -13,6 +13,7 @@ module.exports = {
     sitemap: {
       urls: [
         "https://www.numwords.us",
+        "https://www.numwords.us/api",
         "https://www.numwords.us/about",
         "https://www.numwords.us/contact",
       ],
