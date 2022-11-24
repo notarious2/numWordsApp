@@ -11,6 +11,9 @@
         <router-link class="link" :to="{ name: 'Home' }"
           ><li>Home</li></router-link
         >
+        <router-link class="link" :to="{ name: 'Api' }"
+          ><li>API</li></router-link
+        >
         <router-link class="link" :to="{ name: 'About' }"
           ><li>About</li></router-link
         >
