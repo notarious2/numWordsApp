@@ -18,11 +18,11 @@
       <p class="example-heading">Curl:</p>
       <p class="example-text request">
         <span>curl -X </span>&nbsp; 'GET' <span>\</span> <br />
-        'https://api.numwords.us/api/en/2323' <span>\</span> <br />
+        'https://api.numwords.us/en/2323' <span>\</span> <br />
         <span>-H &nbsp;</span> 'accept: application/json'
       </p>
       <p class="example-heading">Request URL:</p>
-      <p class="example-text request">https://api.numwords.us/api/en/2323</p>
+      <p class="example-text request">https://api.numwords.us/en/2323</p>
 
       <p class="example-heading">Response Body:</p>
       <p class="example-text">
