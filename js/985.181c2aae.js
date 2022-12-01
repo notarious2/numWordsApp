@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunknum_words"]=self["webpackChunknum_words"]||[]).push([[985],{985:function(a,n,s){s.r(n),s.d(n,{default:function(){return c}});var t=s(252),u=s(577);const r={class:"tag"};var e={__name:"LanguageTags",props:["langtag"],setup(a){return(n,s)=>((0,t.wg)(),(0,t.iD)("div",r,(0,u.zw)(a.langtag),1))}};const g=e;var c=g}}]);

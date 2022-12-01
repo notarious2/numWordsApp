@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunknum_words"]=self["webpackChunknum_words"]||[]).push([[255],{255:function(n,r,u){u.r(r),u.d(r,{default:function(){return c}});var e=u(252);function t(n,r){return(0,e.wg)(),(0,e.iD)("h1",null,"Page not found, try again")}var a=u(744);const o={},s=(0,a.Z)(o,[["render",t]]);var c=s}}]);
