@@ -15,6 +15,10 @@
 
 ![Alt homepage](src/assets/readme/home_screen.png?raw=true "Homepage Screenshot")
 
+![Alt home](src/assets/readme/home.png?raw=true "Homepage")
+
+![Alt Api](src/assets/readme/api.png?raw=true "API")
+
 ## Project setup
 
 ```

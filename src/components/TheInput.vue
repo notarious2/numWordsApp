@@ -1,14 +1,16 @@
 <template>
   <div>
     <div>
-      <h1 class="app-desc">Convert numbers into words online</h1>
-      <div class="tag-style">
-        <language-tags
-          v-for="lang in languagesList"
-          :key="lang.value"
-          :langtag="lang.text"
-        />
-      </div>
+      <h1 class="app-desc">
+        Convert numbers into words online in 11 languages
+      </h1>
+      <h2 class="app-desc">
+        Conver numbers into words with
+        <router-link class="link" :to="{ name: 'Api' }"
+          ><span>API</span></router-link
+        >
+        in over 40 languages
+      </h2>
     </div>
     <base-card>
       <form @submit.prevent="setNumber">
@@ -55,9 +57,6 @@ import { event } from "vue-gtag";
 import { defineAsyncComponent } from "vue";
 
 const TheOutput = defineAsyncComponent(() => import("./TheOutput.vue"));
-const LanguageTags = defineAsyncComponent(() =>
-  import("./UI/LanguageTags.vue")
-);
 
 // Handling Input Errors
 const inputIsValid = ref(true);
@@ -157,13 +156,7 @@ watch(typedNum, function (newValue) {
   text-align: center;
   margin: 10px;
   font-size: 18px;
-}
-.tag-style {
-  max-width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  margin-top: 24px;
 }
 
 .input-box {
